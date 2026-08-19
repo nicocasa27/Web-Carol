@@ -130,35 +130,41 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Quién acompaña */}
+      {/* Quién acompaña — mockup "ficha de estudio": columna angosta con los
+          datos en lista (regla horizontal, no tarjetas), foto grande sin
+          marco a la derecha. Referencia: la sección "About" de estudios de
+          arquitectura/diseño (RANA, Harvest) que la toma de requerimientos
+          señaló como el look a perseguir. */}
       <Section id="quien" labelledBy="quien-acompana">
-        <div className="grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
-          <Reveal className="h-[clamp(420px,52vw,640px)] min-w-0">
-            <MediaFrame item={media.portrait} />
-          </Reveal>
+        <div className="grid gap-[clamp(40px,6vw,96px)] lg:grid-cols-[minmax(0,21rem)_1fr]">
+          <Reveal className="flex flex-col gap-i3 lg:sticky lg:top-[calc(var(--spacing-nav)+3rem)] lg:self-start">
+            <div className="flex flex-col gap-i2">
+              <Eyebrow>{who.eyebrow}</Eyebrow>
+              <SectionTitle id="quien-acompana" lines={who.title} />
+            </div>
 
-          <Reveal className="flex flex-col gap-i2">
-            <Eyebrow>{who.eyebrow}</Eyebrow>
-            <SectionTitle id="quien-acompana" lines={who.title} />
-            <Prose paragraphs={who.body} className="font-light" />
-
-            <dl className="mt-i1 flex flex-wrap gap-i3 border-t border-rule pt-i2">
-              {who.stats.map((stat, index) => (
+            <dl className="flex flex-col border-t border-rule">
+              {who.stats.map((stat) => (
                 <div
                   key={stat.value}
-                  className={`flex flex-col gap-1 ${index > 0 ? 'border-l border-rule pl-i3' : ''}`}
+                  className="flex items-baseline justify-between gap-i2 border-b border-rule py-i2"
                 >
-                  <dt className="type-display text-stat">{stat.value}</dt>
-                  <dd className="text-small text-ink-2">{stat.label}</dd>
+                  <dt className="text-small text-ink-2">{stat.label}</dt>
+                  <dd className="type-display text-quote text-right text-ink">{stat.value}</dd>
                 </div>
               ))}
             </dl>
 
-            <p className="mt-i1">
-              <Link href="/sobre-mi" className="link-read text-small">
-                La historia completa
-              </Link>
-            </p>
+            <Link href="/sobre-mi" className="link-read text-small">
+              La historia completa
+            </Link>
+          </Reveal>
+
+          <Reveal className="flex flex-col gap-i3">
+            <div className="h-[clamp(440px,54vw,680px)] min-w-0">
+              <MediaFrame item={media.portrait} rounded={false} />
+            </div>
+            <Prose paragraphs={who.body} className="max-w-[62ch] font-light" />
           </Reveal>
         </div>
       </Section>

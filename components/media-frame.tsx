@@ -15,12 +15,15 @@ export function MediaFrame({
   item,
   className = '',
   priority = false,
+  rounded = true,
 }: {
   item: Media;
   className?: string;
   priority?: boolean;
+  /** El mockup de "Quién acompaña" prueba la foto a sangre completa, sin el radio del diseño. */
+  rounded?: boolean;
 }) {
-  const box = `rounded-media ${className}`;
+  const box = `${rounded ? 'rounded-media' : ''} ${className}`;
   const style = item.ratio ? { aspectRatio: item.ratio } : undefined;
 
   if (item.available && item.kind === 'image') {
