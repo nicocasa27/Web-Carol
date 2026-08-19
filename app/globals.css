@@ -1,0 +1,364 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════════════
+   SYNAPTICA — sistema visual
+
+   Los valores de este archivo son los del diseño `SYNAPTICA Home.dc.html`.
+   Donde hay una diferencia, es por contraste: el diseño lleva varias
+   tintas con alfa que no llegan al mínimo AA, y esas son las únicas que se
+   movieron. Cada corrección está anotada con las dos cifras.
+   `scripts/contrast.mjs` verifica los pares contra este mismo archivo.
+   ══════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Se vacían las escalas por defecto de Tailwind: un `text-blue-500` o un
+     `shadow-lg` que entren por descuido rompen decisiones tomadas. */
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --text-*: initial;
+  --ease-*: initial;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Marfil y hueso: los dos únicos fondos claros del diseño. */
+  --color-ground: #fbf9f5;
+  --color-band: #f2eee7;
+
+  --color-ink: #26221f;
+  /* Diseño: rgba(38,34,31,0.66) y más claras hasta 0.35. Las tintas por
+     debajo de 0.66 caen entre 3.6:1 y 2.1:1 — texto de 11 a 13 px que no
+     se lee. Una sola tinta secundaria sólida, 5.34:1 sobre marfil y
+     4.86:1 sobre hueso. La jerarquía la sostienen el tamaño y el acento,
+     que es donde el diseño ya la tenía. */
+  --color-ink-2: #6a6764;
+
+  --color-rule: #dfdcd6;
+  --color-rule-strong: #d3cec6;
+  /* Borde del botón contorneado de la barra. Diseño: rgba(...,0.35) =
+     2.11:1, por debajo del mínimo no textual de 3:1. */
+  --color-edge: #8b8884;
+
+  /* Salmón. El relleno luminoso del diseño se conserva intacto: el brief
+     lo pide «luminoso y refinado» y oscurecerlo lo volvería terracota.
+     Lo que cambia es el texto encima —marfil daba 2.56:1, la tinta da
+     5.86:1— y una fina línea del salmón oscuro le da al botón una
+     silueta de 5.08:1 contra el fondo. */
+  --color-accent: #d98a6c;
+  /* Diseño: #c1755a = 3.35:1. Dos pasos más oscuro, mismo tono. */
+  --color-accent-ink: #a2563d;
+  --color-accent-warm: #e0987d;
+
+  /* Petróleo: el gesto profundo, una sola sección y nada más. */
+  --color-deep: #22363a;
+  --color-deep-ink: #f2eee7;
+  /* Diseño: rgba(242,238,231,0.72) para cuerpo y 0.45 para la etiqueta.
+     La segunda daba 3.53:1; ambas usan ahora la primera. */
+  --color-deep-ink-2: #b8bab7;
+  --color-deep-rule: #3a4c50;
+
+  /* Cormorant Garamond para todo lo que debe resonar; Inter para todo lo
+     que debe leerse sin esfuerzo. Es el par del diseño. */
+  --font-serif: var(--font-cormorant), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.4;
+  --text-small: 0.84375rem;
+  --text-small--line-height: 1.6;
+  --text-card: 0.9375rem;
+  --text-card--line-height: 1.7;
+  --text-body: 1rem;
+  --text-body--line-height: 1.75;
+  --text-lead: clamp(1rem, 1.6vw, 1.1875rem);
+  --text-lead--line-height: 1.6;
+  --text-quote: 1.25rem;
+  --text-quote--line-height: 1.5;
+  --text-stat: 1.875rem;
+  --text-stat--line-height: 1.1;
+  --text-title: clamp(2rem, 3.6vw, 3rem);
+  --text-title--line-height: 1.12;
+  --text-recognition: clamp(1.875rem, 4.2vw, 3.25rem);
+  --text-recognition--line-height: 1.22;
+  --text-opening: clamp(2.625rem, 6.2vw, 5.25rem);
+  --text-opening--line-height: 1.06;
+  --text-numeral: clamp(8.75rem, 22vw, 18.75rem);
+  --text-numeral--line-height: 0.85;
+
+  /* Ritmo. El de sección y el de dentro de un componente son escalas
+     distintas a propósito: una sola afirmaría que todo pesa igual. */
+  --spacing-i1: 0.75rem;
+  --spacing-i2: 1.375rem;
+  --spacing-i3: 2.125rem;
+  --spacing-stack: 3.5rem;
+  --spacing-block: 4rem;
+  --spacing-section: clamp(110px, 14vw, 170px);
+  --spacing-section-deep: clamp(110px, 14vw, 180px);
+  --spacing-hero: clamp(140px, 20vh, 210px);
+  --spacing-gutter: clamp(24px, 6vw, 80px);
+  --spacing-nav: 4rem;
+
+  --container-wide: 1280px;
+  --container-deep: 1180px;
+  --container-invite: 1080px;
+  --container-hero: 1040px;
+  --container-narrow: 900px;
+  --container-measure: 40em;
+
+  --radius-media: 18px;
+  --radius-card: 16px;
+  --radius-pill: 980px;
+
+  /* Oclusión acromática con desplazamiento real: una sombra es ausencia
+     de luz, no emisión. Es la única del sitio y es la del diseño. */
+  --shadow-media: 0 24px 80px -24px rgba(38, 34, 31, 0.18);
+
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    caret-color: var(--color-accent-ink);
+    scrollbar-color: var(--color-rule) var(--color-ground);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* La barra es fija: sin esto, un ancla deja el título debajo de ella.
+       En móvil ocupa dos filas, así que el margen es mayor. */
+    scroll-padding-top: 8.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    html {
+      scroll-padding-top: calc(var(--spacing-nav) + 1.5rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.75;
+    letter-spacing: -0.1px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Las seis superficies que nadie tematiza. Doce líneas, y son la
+     evidencia más barata de que alguien estuvo aquí. */
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-ink);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ground);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rule);
+    border: 3px solid var(--color-ground);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-edge);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 1px;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Sobre petróleo el acento oscuro cae a 2.2:1: el anillo de foco
+     desaparecería justo donde más falta hace. */
+  .on-deep :focus-visible {
+    outline-color: var(--color-accent-warm);
+  }
+  .on-deep ::selection {
+    background-color: var(--color-deep-rule);
+    color: var(--color-deep-ink);
+  }
+
+  .type-display {
+    font-family: var(--font-serif);
+    font-weight: 300;
+  }
+
+  /* La etiqueta versalita del diseño. Una sola definición, para que no se
+     vuelva tres estilos distintos de la misma cosa. */
+  .eyebrow {
+    font-size: var(--text-micro);
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+  .eyebrow-quiet {
+    color: var(--color-ink-2);
+  }
+  .on-deep .eyebrow {
+    color: var(--color-deep-ink-2);
+  }
+}
+
+@layer components {
+  .control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-body);
+    letter-spacing: 0.2px;
+    /* Responde en pointer-down. Esperar al click deja el botón muerto
+       durante toda la latencia, y es el defecto más señalado del lote. */
+    transition-property: background-color, color, border-color, transform;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-settle);
+  }
+  .control:active {
+    transform: translateY(1px);
+  }
+
+  /* El llamado principal: relleno salmón del diseño, tinta encima
+     (5.86:1) y una línea del salmón oscuro que le da silueta (5.08:1). */
+  .control-solid {
+    padding: 1.0625rem 2.75rem;
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent-ink);
+    color: var(--color-ink);
+  }
+  .control-solid:hover {
+    background-color: var(--color-accent-ink);
+    color: var(--color-ground);
+  }
+
+  /* El de la barra: contorno que se rellena al pasar, como en el diseño. */
+  .control-outline {
+    padding: 0.5625rem 1.375rem;
+    border: 1px solid var(--color-edge);
+    font-size: var(--text-small);
+    color: var(--color-ink);
+  }
+  .control-outline:hover {
+    border-color: var(--color-ink);
+    background-color: var(--color-ink);
+    color: var(--color-ground);
+  }
+
+  .link-quiet {
+    color: var(--color-ink-2);
+    transition-property: color;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-settle);
+  }
+  .link-quiet:hover {
+    color: var(--color-ink);
+  }
+  .link-quiet:active {
+    color: var(--color-accent-ink);
+  }
+
+  .link-read {
+    color: var(--color-accent-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--color-rule-strong);
+    transition-property: text-decoration-color, color;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-settle);
+  }
+  .link-read:hover {
+    text-decoration-color: var(--color-accent-ink);
+  }
+  .link-read:active {
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  /* La entrada de la apertura: animación CSS, sin observer. Se ejecuta
+     sola, así que la frase no depende de que llegue un script. */
+  @keyframes sy-fade {
+    from {
+      opacity: 0;
+      transform: translateY(26px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .sy-fade {
+    animation: sy-fade 1.5s var(--ease-settle) var(--fade-delay, 0s) both;
+  }
+
+  /* La entrada por scroll. El estado inicial lo pone el JS en un atributo,
+     nunca el CSS base: si el observer no dispara —error de script,
+     restauración de scroll, un bot, alguien con JS apagado— el contenido
+     ya estaba visible. Lo contrario publica una página que nadie ve. */
+  [data-enter="pending"] {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  [data-enter="in"] {
+    opacity: 1;
+    transform: none;
+    transition-property: opacity, transform;
+    transition-duration: 900ms;
+    transition-timing-function: var(--ease-settle);
+    transition-delay: var(--enter-delay, 0ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Movimiento reducido no es ausencia de movimiento: se va el
+       desplazamiento vestibular, el cambio de estado sigue siendo
+       legible como fundido. */
+    [data-enter="pending"] {
+      transform: none;
+    }
+    [data-enter="in"] {
+      transition-property: opacity;
+      transition-duration: 320ms;
+    }
+    .sy-fade {
+      animation-name: sy-fade-quiet;
+      animation-duration: 320ms;
+    }
+    @keyframes sy-fade-quiet {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .control:active {
+      transform: none;
+    }
+  }
+}

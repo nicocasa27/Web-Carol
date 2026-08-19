@@ -1,0 +1,9 @@
+<!-- Marca provisional. El isotipo definitivo —red neuronal, raíz y vuelo
+     sugeridos por una sola estructura de líneas— está pendiente (§06 de la
+     propuesta). Hasta entonces, el logotipo tipográfico, que es lo que la
+     propuesta indica hacer mientras tanto. Ver README, «Pendientes». -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SYNAPTICA">
+  <rect width="64" height="64" fill="#22363a"/>
+  <text x="32" y="45" text-anchor="middle" font-family="Cormorant Garamond, Iowan Old Style, Georgia, serif"
+        font-size="42" font-weight="400" fill="#fbf9f5">S</text>
+</svg>
