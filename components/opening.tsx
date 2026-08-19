@@ -1,4 +1,6 @@
+import { Fragment } from 'react';
 import { MediaFrame } from '@/components/media-frame';
+import { LineBreak } from '@/components/section';
 import { media } from '@/content/media';
 import { opening } from '@/content/home';
 import { isBookingLive, isEmailLive, booking } from '@/content/brand';
@@ -15,48 +17,54 @@ export function Opening() {
       aria-labelledby="apertura"
       className="flex flex-col items-center px-6 pt-hero text-center"
     >
-      <div className="eyebrow eyebrow-quiet sy-fade" style={{ '--fade-delay': '0.15s' } as React.CSSProperties}>
+      <div className="eyebrow eyebrow-quiet sy-fade sy-step-1">
         {opening.eyebrow}
       </div>
 
       <h1
         id="apertura"
-        className="type-display sy-fade mt-i3 max-w-[15em] text-opening tracking-[-0.5px]"
-        style={{ '--fade-delay': '0.45s' } as React.CSSProperties}
+        className="type-display sy-fade sy-step-2 mt-i3 max-w-[15em] text-opening tracking-[-0.5px] max-sm:text-balance"
+       
       >
-        {opening.headline.map((line) => (
-          <span key={line} className="block">
+        {opening.headline.map((line, index) => (
+          <Fragment key={line}>
+            {index > 0 ? <LineBreak /> : null}
             {line}
-          </span>
+          </Fragment>
         ))}
       </h1>
 
       <p
-        className="sy-fade mt-i3 max-w-[34em] text-lead font-light text-ink-2"
-        style={{ '--fade-delay': '0.85s' } as React.CSSProperties}
+        className="sy-fade sy-step-3 mt-i3 max-w-[34em] text-lead font-light text-ink-2 text-pretty"
+       
       >
-        {opening.sub.map((line) => (
-          <span key={line} className="block">
+        {opening.sub.map((line, index) => (
+          <Fragment key={line}>
+            {index > 0 ? <LineBreak /> : null}
             {line}
-          </span>
+          </Fragment>
         ))}
       </p>
 
       <div
-        className="sy-fade mt-block w-[min(var(--container-hero),92vw)]"
-        style={{ '--fade-delay': '1.2s' } as React.CSSProperties}
+        className="sy-fade sy-step-4 mt-block w-[min(var(--container-hero),92vw)]"
+       
       >
         {/* Mientras no exista la pieza, la apertura la sostiene el póster.
             La marca de reproducción del diseño se retira hasta entonces:
             un botón de play que no reproduce nada es un control muerto. */}
         <div className="overflow-hidden rounded-media shadow-media">
-          <MediaFrame item={media.film.available ? media.film : media.heroPoster} priority />
+          <MediaFrame
+            item={media.film.available ? media.film : media.heroPoster}
+            priority
+            sizes="(min-width: 1104px) 1040px, 92vw"
+          />
         </div>
       </div>
 
       <div
-        className="sy-fade mt-stack flex flex-col items-center gap-i2 pb-[56px]"
-        style={{ '--fade-delay': '1.8s' } as React.CSSProperties}
+        className="sy-fade sy-step-5 mt-stack flex flex-col items-center gap-i2 pb-[56px]"
+       
       >
         <p className="text-micro tracking-[2.4px] text-ink-2 uppercase">{opening.scrollHint}</p>
         {!isBookingLive && !isEmailLive ? (

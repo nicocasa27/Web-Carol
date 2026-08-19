@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 
 const tones = {
   ground: 'bg-ground text-ink',
@@ -56,6 +56,24 @@ export function Eyebrow({
   return <div className={`eyebrow${quiet ? ' eyebrow-quiet' : ''}`}>{children}</div>;
 }
 
+/**
+ * El corte de línea del diseño, que sólo existe a partir de `sm`.
+ *
+ * El diseño está dibujado a un solo ancho y fija los saltos con `<br>`.
+ * En un teléfono eso parte los titulares donde no toca —«El síntoma no es
+ * una falla.» mide 362 px a 32 px de cuerpo, y sólo hay 342 px— y deja
+ * líneas huérfanas de dos palabras. Aquí el texto fluye solo por debajo de
+ * 640 px y recupera el corte exacto del diseño por encima.
+ */
+export function LineBreak() {
+  return (
+    <>
+      {' '}
+      <br className="hidden sm:inline" />
+    </>
+  );
+}
+
 /** Título de sección: Cormorant 300, dos líneas, un solo tamaño en el sitio. */
 export function SectionTitle({
   lines,
@@ -68,11 +86,12 @@ export function SectionTitle({
 }) {
   const rows = typeof lines === 'string' ? [lines] : lines;
   return (
-    <h2 id={id} className={`type-display text-title ${className}`}>
-      {rows.map((line) => (
-        <span key={line} className="block">
+    <h2 id={id} className={`type-display text-title max-sm:text-balance ${className}`}>
+      {rows.map((line, index) => (
+        <Fragment key={line}>
+          {index > 0 ? <LineBreak /> : null}
           {line}
-        </span>
+        </Fragment>
       ))}
     </h2>
   );

@@ -1,9 +1,10 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 import { Opening } from '@/components/opening';
 import { Reveal } from '@/components/reveal';
 import { MediaFrame } from '@/components/media-frame';
 import { BookingLink } from '@/components/booking-link';
-import { Section, Eyebrow, SectionTitle, Prose } from '@/components/section';
+import { Section, Eyebrow, SectionTitle, Prose, LineBreak } from '@/components/section';
 import { media } from '@/content/media';
 import {
   recognition,
@@ -44,11 +45,12 @@ export default function Home() {
                 'linear-gradient(color-mix(in srgb, var(--color-ink) 0%, transparent), color-mix(in srgb, var(--color-ink) 30%, transparent))',
             }}
           />
-          <h2 id="reconocimiento" className="type-display text-recognition italic">
-            {recognition.quote.map((line) => (
-              <span key={line} className="block">
+          <h2 id="reconocimiento" className="type-display text-recognition italic max-sm:text-balance">
+            {recognition.quote.map((line, index) => (
+              <Fragment key={line}>
+                {index > 0 ? <LineBreak /> : null}
                 {line}
-              </span>
+              </Fragment>
             ))}
           </h2>
           <p className="max-w-measure text-body font-light text-ink-2">{recognition.body}</p>
@@ -73,7 +75,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal className="h-[clamp(380px,48vw,600px)] min-w-0">
-            <MediaFrame item={media.idea} />
+            <MediaFrame item={media.idea} sizes="(min-width: 1024px) 580px, 100vw" />
           </Reveal>
         </div>
       </Section>
@@ -134,7 +136,7 @@ export default function Home() {
       <Section id="quien" labelledBy="quien-acompana">
         <div className="grid items-center gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
           <Reveal className="h-[clamp(420px,52vw,640px)] min-w-0">
-            <MediaFrame item={media.portrait} />
+            <MediaFrame item={media.portrait} sizes="(min-width: 1024px) 580px, 100vw" />
           </Reveal>
 
           <Reveal className="flex flex-col gap-i2">
@@ -187,11 +189,12 @@ export default function Home() {
           </Reveal>
 
           <Reveal className="flex flex-col items-center gap-i2">
-            <p className="type-display max-w-[18ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] italic text-ink">
-              {stories.closing.map((line) => (
-                <span key={line} className="block">
+            <p className="type-display max-w-[22ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] italic text-ink max-sm:text-balance">
+              {stories.closing.map((line, index) => (
+                <Fragment key={line}>
+                  {index > 0 ? <LineBreak /> : null}
                   {line}
-                </span>
+                </Fragment>
               ))}
             </p>
             <Link href="/historias" className="link-read text-small">

@@ -19,7 +19,7 @@ export default function SobreMiPage() {
       <Section tone="band" labelledBy="de-donde-viene">
         <div className="grid items-start gap-[clamp(40px,6vw,96px)] lg:grid-cols-2">
           <div className="h-[clamp(420px,52vw,640px)] min-w-0">
-            <MediaFrame item={media.portrait} priority />
+            <MediaFrame item={media.portrait} priority sizes="(min-width: 1024px) 580px, 100vw" />
           </div>
           <div className="flex flex-col gap-i2">
             <Eyebrow>El origen</Eyebrow>

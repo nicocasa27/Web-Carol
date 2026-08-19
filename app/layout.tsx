@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import { brand } from '@/content/brand';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { siteUrl, isIndexable } from '@/content/site';
 
 /** El par tipográfico del diseño. Self-hosted: sin petición a Google. */
 const cormorant = Cormorant_Garamond({
@@ -19,8 +20,6 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -35,7 +34,17 @@ export const metadata: Metadata = {
     title: brand.name,
     description: brand.description,
   },
-  robots: { index: true, follow: true },
+  robots: { index: isIndexable, follow: isIndexable },
+};
+
+/**
+ * Tiñe la barra del navegador en móvil del mismo marfil de la página. Sin
+ * esto, Safari y Chrome pintan su propio gris encima del diseño y el
+ * borde superior de la pantalla se ve como una costura.
+ */
+export const viewport: Viewport = {
+  themeColor: '#fbf9f5',
+  colorScheme: 'light',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

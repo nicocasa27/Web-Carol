@@ -94,8 +94,11 @@
   --spacing-i3: 2.125rem;
   --spacing-stack: 3.5rem;
   --spacing-block: 4rem;
-  --spacing-section: clamp(110px, 14vw, 170px);
-  --spacing-section-deep: clamp(110px, 14vw, 180px);
+  /* El suelo del diseño son 110 px, pensados a un solo ancho. En un
+     teléfono eso deja 220 px de vacío entre secciones y convierte la
+     página en un scroll largo; 88 px siguen siendo aire de sobra. */
+  --spacing-section: clamp(88px, 14vw, 170px);
+  --spacing-section-deep: clamp(96px, 14vw, 180px);
   --spacing-hero: clamp(140px, 20vh, 210px);
   --spacing-gutter: clamp(24px, 6vw, 80px);
   --spacing-nav: 4rem;
@@ -315,6 +318,28 @@
 
   .sy-fade {
     animation: sy-fade 1.5s var(--ease-settle) var(--fade-delay, 0s) both;
+  }
+
+  /* Los cinco tiempos de la apertura, como clases y no como estilos en
+     línea, para poder comprimirlos donde importa. */
+  .sy-step-1 { --fade-delay: 0.15s; }
+  .sy-step-2 { --fade-delay: 0.45s; }
+  .sy-step-3 { --fade-delay: 0.85s; }
+  .sy-step-4 { --fade-delay: 1.2s; }
+  .sy-step-5 { --fade-delay: 1.8s; }
+
+  /* En un teléfono la apertura ES la primera pantalla completa, y la
+     secuencia del diseño tarda 3.3 s en terminar de aparecer. Comprimida
+     a la mitad conserva el escalonado y deja de hacerse esperar. */
+  @media (max-width: 39.9375rem) {
+    .sy-fade {
+      animation-duration: 900ms;
+    }
+    .sy-step-1 { --fade-delay: 0.08s; }
+    .sy-step-2 { --fade-delay: 0.24s; }
+    .sy-step-3 { --fade-delay: 0.44s; }
+    .sy-step-4 { --fade-delay: 0.62s; }
+    .sy-step-5 { --fade-delay: 0.9s; }
   }
 
   /* La entrada por scroll. El estado inicial lo pone el JS en un atributo,

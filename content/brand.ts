@@ -52,8 +52,11 @@ export const booking = {
   url: process.env.NEXT_PUBLIC_BOOKING_URL ?? '',
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
   label: 'Agenda una llamada',
+  /** En la barra de un teléfono no cabe la etiqueta larga. */
+  labelShort: 'Agenda',
   labelLong: 'Agenda una llamada de valoración',
   pending: 'Agenda en preparación',
+  pendingShort: 'En preparación',
   pendingLong: 'La agenda en línea se abre en los próximos días.',
 } as const;
 
