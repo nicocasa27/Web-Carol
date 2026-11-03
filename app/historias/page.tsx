@@ -14,7 +14,7 @@ export default function HistoriasPage() {
       <PageHeader title={historiasPage.title} lead={historiasPage.lead} />
 
       <Section tone="band" width="narrow" labelledBy="caso">
-        <article className="flex flex-col gap-block">
+        <article className="flex flex-col gap-major">
           <div className="flex flex-col items-center gap-i2 text-center">
             <Eyebrow>Un caso</Eyebrow>
             <SectionTitle id="caso" lines={historiasPage.story.title} />
@@ -26,7 +26,7 @@ export default function HistoriasPage() {
                 key={block.label}
                 className="flex flex-col gap-i1 rounded-card bg-ground p-i3"
               >
-                <dt className="text-micro tracking-[2.4px] text-ink-2 uppercase">
+                <dt className="type-utility text-micro tracking-[2.4px] text-ink-2 uppercase">
                   {block.label}
                 </dt>
                 <dd className="text-card font-light text-ink-2">{block.body}</dd>
@@ -43,7 +43,7 @@ export default function HistoriasPage() {
       <Section width="narrow">
         <div className="flex flex-col items-center gap-i3 text-center">
           <p className="max-w-measure text-small text-ink-2">{historiasPage.note}</p>
-          <BookingLink long />
+          <BookingLink />
         </div>
       </Section>
     </>

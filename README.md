@@ -1,8 +1,9 @@
-# SYNAPTICA — sitio fase 1
+# Carol Leyva — sitio fase 1
 
-La portada implementa el diseño `SYNAPTICA Home.dc.html` del proyecto de
-Claude Design; el resto sale de la propuesta y de la toma de
-requerimientos de 27 preguntas. Next.js 16 (App Router) con Tailwind v4,
+La portada parte del diseño `SYNAPTICA Home.dc.html` del proyecto de
+Claude Design, reencuadrado tras la junta del 29 de agosto de 2026: se
+cayó la marca «Sináptica» y el eje pasó del método a la marca personal.
+El resto sale de la propuesta y de la toma de requerimientos. Next.js 16 (App Router) con Tailwind v4,
 sin backend: las once rutas se prerenderizan.
 
 La portada es de una sola página, con anclas (`#metodo`, `#quien`,
@@ -77,23 +78,56 @@ anonimato no sustituye el consentimiento. **No publicar sin autorización
 escrita de la persona.** La constante `consentPending` en ese archivo está
 en `true`.
 
-**2 · Nombre profesional.** La toma de requerimientos nunca da el nombre
-completo ni el título con el que quiere firmar. `content/brand.ts` usa el
-nombre de pila. Confirmar antes de publicar.
+**2 · Nombre del método.** «Sináptica» se descartó y no hay sustituto. El
+copy dice «el método» en todos lados; cuando ella lo nombre se pone en
+`methodName` (`content/brand.ts`) y nada más cambia.
 
 **3 · Enlace de agenda.** Sin `NEXT_PUBLIC_BOOKING_URL` no hay dónde
 agendar. Confirmar si es Calendly u otro.
 
 **4 · Medios provisionales.** Las tres imágenes del sitio son fotografías
 de banco con licencia Pexels, puestas para poder enseñar la página
-completa. **No son de SYNAPTICA y hay que sustituirlas antes de
+completa. **No son de Carol Leyva y hay que sustituirlas antes de
 publicar** — están marcadas con `provisional: true` en `content/media.ts`
 y listadas con sus créditos en `public/media/README.md`, junto al brief de
 producción del video, que sigue sin existir.
 
-**5 · Isotipo.** `app/icon.svg` y `app/opengraph-image.tsx` son
-provisionales: logotipo tipográfico, que es lo que la propuesta indica
-hacer mientras el isotipo no exista.
+**5 · Isotipo.** `app/icon.svg` es un monograma provisional. En la junta se
+acordó que no urge: el nombre en una tipografía de firma hace ese trabajo.
+
+**6 · Contenido de las cinco semanas** del protocolo escolar. Hasta que
+llegue, la página declara el hueco.
+
+**6b · Documentos legales en revisión.** Las cuatro plantillas de RTT están
+traducidas y publicadas en `/aviso-de-privacidad`, `/terminos`,
+`/consentimiento` y `/testimonios` (`content/legal.ts`), con un aviso de
+«versión en revisión» y cada campo en blanco de la plantilla resaltado
+como pendiente: montos, horario, plazo de conservación, forma de
+almacenar datos, medio de firma y el país cuya ley aplica (las plantillas
+dicen Inglaterra). **No son vigentes hasta que Carol las apruebe y, idealmente,
+las revise un abogado en México**: el aviso de privacidad no trae los
+elementos que exige la ley mexicana (responsable con domicilio y derechos
+ARCO). Cuando estén listos, `status: 'final'` quita el aviso.
+
+**7b · Logos de acreditación: confirmar antes de publicar.** Al pie de
+«Quién acompaña» hay dos filas (`content/credentials.ts`): las
+certificaciones de Carol (RTT Practitioner y C. Hyp.) y, más tenues, ocho
+organizaciones que **acreditan la formación RTT**. Según el propio PDF de
+RTT, esas organizaciones acreditan el programa y el practitioner *puede*
+afiliarse a ellas; el uso del logo suele ser un beneficio de miembro. Hay
+que confirmar con Carol: (1) que su formación fue Live In-Person o Live
+Online, (2) que RTT permite a practitioners mostrar esos logos, y (3) si
+es miembro de alguna, para pasarla a su fila. NBVH y ASCH se añadieron a
+petición de Carol, pero son las más dudosas: NBVH acredita sólo la
+formación presencial y el logo de ASCH dice literalmente «RTT Live
+In-Person Only». Si su formación fue en línea, esas dos salen.
+
+**8 · Selector de idioma.** Se monta cuando el español esté aprobado.
+
+**7 · La tipografía es una propuesta.** Petrona + Archivo sustituyen a
+Cormorant + Inter, que Carol describió como «un poquito comunes». Sigue
+pendiente el Google Forms para que ella elija; cambiar el par son dos
+llamadas en `app/layout.tsx` y dos variables en `app/globals.css`.
 
 ## Fuera de alcance en esta etapa
 

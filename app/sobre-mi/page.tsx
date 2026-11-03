@@ -44,7 +44,7 @@ export default function SobreMiPage() {
           <Prose paragraphs={sobreMiPage.path.body} className="font-light" />
         </div>
 
-        <dl className="mt-block flex flex-wrap gap-i3 border-t border-rule pt-i3">
+        <dl className="mt-major flex flex-wrap gap-i3 border-t border-rule pt-i3">
           {who.stats.map((stat) => (
             <div key={stat.value} className="flex flex-col gap-1">
               <dt className="type-display text-stat">{stat.value}</dt>
@@ -60,7 +60,7 @@ export default function SobreMiPage() {
           <SectionTitle id="como-trabajo" lines={sobreMiPage.presence.title} />
           <Prose paragraphs={sobreMiPage.presence.body} className="font-light" />
           <div className="mt-i2">
-            <BookingLink long />
+            <BookingLink />
           </div>
         </div>
       </Section>

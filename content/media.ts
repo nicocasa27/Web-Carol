@@ -5,7 +5,7 @@
  *
  * ⚠ LAS TRES IMÁGENES SON PROVISIONALES. Son fotografías de banco con
  * licencia Pexels, elegidas para que la página se pueda enseñar completa
- * mientras no exista el material propio. No son de SYNAPTICA, no son de
+ * mientras no exista el material propio. No son de Carol Leyva, no son de
  * ella y no pueden publicarse como si lo fueran. Los créditos están en
  * `public/media/README.md`.
  *

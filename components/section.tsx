@@ -24,6 +24,7 @@ export function Section({
   width = 'wide',
   id,
   labelledBy,
+  flushTop = false,
   className = '',
 }: {
   children: ReactNode;
@@ -31,9 +32,15 @@ export function Section({
   width?: keyof typeof widths;
   id?: string;
   labelledBy?: string;
+  /** Sin respiración arriba: para cuando sigue a un PageHeader del mismo fondo. */
+  flushTop?: boolean;
   className?: string;
 }) {
-  const pad = tone === 'deep' ? 'py-section-deep' : 'py-section';
+  const pad = flushTop
+    ? 'pb-section'
+    : tone === 'deep'
+      ? 'py-section-deep'
+      : 'py-section';
   return (
     <section
       id={id}
@@ -74,7 +81,29 @@ export function LineBreak() {
   );
 }
 
-/** Título de sección: Cormorant 300, dos líneas, un solo tamaño en el sitio. */
+/**
+ * Un titular con su palabra en itálica: `nada roto en *ti*`. Idea de la
+ * referencia Maren & Co. — una palabra por título, en la itálica de la
+ * serif de display y en el salmón oscuro.
+ */
+export function Emphasized({ text }: { text: string }) {
+  const parts = text.split(/\*([^*]+)\*/);
+  return (
+    <>
+      {parts.map((part, index) =>
+        index % 2 === 1 ? (
+          <em key={index} className="emphasis">
+            {part}
+          </em>
+        ) : (
+          <Fragment key={index}>{part}</Fragment>
+        )
+      )}
+    </>
+  );
+}
+
+/** Título de sección: serif de display 300, dos líneas, un solo tamaño en el sitio. */
 export function SectionTitle({
   lines,
   id,
@@ -90,7 +119,7 @@ export function SectionTitle({
       {rows.map((line, index) => (
         <Fragment key={line}>
           {index > 0 ? <LineBreak /> : null}
-          {line}
+          <Emphasized text={line} />
         </Fragment>
       ))}
     </h2>
@@ -109,7 +138,14 @@ export function Prose({
 }) {
   const color = tone === 'deep' ? 'text-deep-ink-2' : 'text-ink-2';
   return (
-    <div className={`flex max-w-measure flex-col gap-i2 text-body ${color} ${className}`}>
+    /* Justificado a petición de Carol, para que los finales de renglón
+       queden parejos. Sin `hyphens-auto` el justificado abre huecos
+       enormes entre palabras en una columna estrecha: es el corte de
+       palabra lo que lo hace legible, y el documento declara `lang="es-MX"`,
+       así que el navegador corta en español. */
+    <div
+      className={`flex max-w-measure flex-col gap-i2 text-body hyphens-auto text-justify ${color} ${className}`}
+    >
       {paragraphs.map((p) => (
         <p key={p.slice(0, 32)}>{p}</p>
       ))}
@@ -123,7 +159,7 @@ export function Prose({
  */
 export function PageHeader({ title, lead }: { title: string; lead: string }) {
   return (
-    <section className="bg-ground px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-block))] pb-section">
+    <section className="bg-ground px-gutter pt-[calc(var(--spacing-nav)+var(--spacing-major))] pb-section">
       <div className="mx-auto flex max-w-measure flex-col gap-i2">
         <h1 className="type-display text-title text-balance">{title}</h1>
         <p className="text-lead text-ink-2 text-pretty">{lead}</p>

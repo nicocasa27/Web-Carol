@@ -33,7 +33,7 @@ export default function OpengraphImage() {
           {brand.tagline}
         </div>
         <div style={{ display: 'flex', fontSize: 26, color: '#b8bab7' }}>
-          Sesiones en línea · español e inglés
+          {brand.role} · Sesiones en línea, español e inglés
         </div>
       </div>
     ),

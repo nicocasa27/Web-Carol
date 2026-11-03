@@ -19,7 +19,7 @@ export default function SesionesPage() {
           <SectionTitle id="la-forma" lines={sesionesPage.shape.title} />
         </div>
 
-        <ol className="mt-block flex flex-col border-t border-rule">
+        <ol className="mt-major flex flex-col border-t border-rule">
           {sesionesPage.shape.steps.map((step) => (
             <li
               key={step.label}
@@ -38,13 +38,13 @@ export default function SesionesPage() {
           <SectionTitle id="practico" lines={sesionesPage.modality.title} />
         </div>
 
-        <dl className="mt-block flex flex-col border-t border-rule">
+        <dl className="mt-major flex flex-col border-t border-rule">
           {sesionesPage.modality.items.map((item) => (
             <div
               key={item.term}
               className="flex flex-col gap-1 border-b border-rule py-i2 md:flex-row md:gap-i2"
             >
-              <dt className="text-micro tracking-[2.4px] text-ink-2 uppercase md:w-[12rem]">
+              <dt className="type-utility text-micro tracking-[2.4px] text-ink-2 uppercase md:w-[12rem]">
                 {item.term}
               </dt>
               <dd className="max-w-measure text-body">{item.description}</dd>
@@ -60,7 +60,7 @@ export default function SesionesPage() {
           <Prose paragraphs={sesionesPage.evidence.body} className="font-light" />
         </div>
 
-        <div className="mt-block grid gap-i2 md:grid-cols-2">
+        <div className="mt-major grid gap-i2 md:grid-cols-2">
           {sesionesPage.evidence.quotes.map((quote) => (
             <blockquote
               key={quote}
@@ -71,7 +71,7 @@ export default function SesionesPage() {
           ))}
         </div>
 
-        <p className="mt-block max-w-measure text-lead">{sesionesPage.evidence.closing}</p>
+        <p className="mt-major max-w-measure text-lead">{sesionesPage.evidence.closing}</p>
       </Section>
 
       <Section labelledBy="no-es-para">
@@ -80,7 +80,7 @@ export default function SesionesPage() {
           <SectionTitle id="no-es-para" lines={sesionesPage.notFor.title} />
           <Prose paragraphs={sesionesPage.notFor.body} className="font-light" />
           <div className="mt-i2">
-            <BookingLink long />
+            <BookingLink />
           </div>
         </div>
       </Section>

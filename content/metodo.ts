@@ -14,7 +14,12 @@ export const metodoPage = {
     ],
     formal: {
       label: 'Declaración formal',
-      text: 'Es el sistema de acceso neuro-subconsciente estructurado dentro del modelo SYNAPTICA, diseñado para facilitar reconsolidación emocional y reorganización identitaria mediante intervención hipnótica clínica y neuroplasticidad dirigida.',
+      /**
+       * La declaración de §8 nombraba el modelo. El nombre se descartó en
+       * la junta y no hay sustituto, así que la frase describe el sistema
+       * sin bautizarlo. Cuando ella lo nombre, entra aquí.
+       */
+      text: 'Un sistema de acceso neuro-subconsciente estructurado, diseñado para facilitar reconsolidación emocional y reorganización identitaria mediante intervención hipnótica clínica y neuroplasticidad dirigida.',
     },
   },
 
@@ -23,7 +28,7 @@ export const metodoPage = {
     body: [
       'Cada proceso empieza escuchando la historia con la convicción de que todo síntoma tiene un propósito y de que detrás de cada comportamiento hay una lógica que merece comprenderse antes de intentar cambiarla.',
       'El trabajo consiste en identificar los patrones invisibles que mantienen vivo el problema, conectar los momentos de la historia personal que les dieron origen y acompañar la reconstrucción de una narrativa interna más coherente con quien la persona realmente es.',
-      'Por eso SYNAPTICA no se define por las técnicas que usa. Cuando comprensión, experiencia emocional y evidencia convergen, el cambio deja de depender de la fuerza de voluntad.',
+      'Por eso el método no se define por las técnicas que usa. Cuando comprensión, experiencia emocional y evidencia convergen, el cambio deja de depender de la fuerza de voluntad.',
     ],
     disciplines: [
       { name: 'Hipnoterapia clínica (RTT)', role: 'acceso al origen de la creencia' },

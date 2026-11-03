@@ -70,8 +70,8 @@ export function MediaFrame({
       style={style}
     >
       <figcaption className="flex flex-col gap-1 border-t border-rule bg-band/90 px-i2 py-i1">
-        <span className="text-micro tracking-[2.4px] text-ink uppercase">{item.label}</span>
-        <span className="text-micro text-ink-2">{item.spec}</span>
+        <span className="type-utility text-micro tracking-[2.4px] text-ink uppercase">{item.label}</span>
+        <span className="type-utility text-micro text-ink-2">{item.spec}</span>
       </figcaption>
     </figure>
   );

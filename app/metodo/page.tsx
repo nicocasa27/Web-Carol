@@ -22,7 +22,7 @@ export default function MetodoPage() {
           <Prose paragraphs={metodoPage.rtt.body} className="font-light" />
         </div>
 
-        <div className="mt-block flex max-w-measure flex-col gap-i1 border-t border-rule pt-i2">
+        <div className="mt-major flex max-w-measure flex-col gap-i1 border-t border-rule pt-i2">
           <Eyebrow quiet>{metodoPage.rtt.formal.label}</Eyebrow>
           <p className="type-display text-quote italic text-ink-2">
             {metodoPage.rtt.formal.text}
@@ -37,7 +37,7 @@ export default function MetodoPage() {
           <p className="max-w-measure text-body font-light text-ink-2">{method.intro}</p>
         </div>
 
-        <ol className="mt-block flex flex-col border-t border-rule">
+        <ol className="mt-major flex flex-col border-t border-rule">
           {method.steps.map((step, index) => (
             <Reveal
               as="li"
@@ -76,7 +76,7 @@ export default function MetodoPage() {
           <Prose paragraphs={metodoPage.approach.body} className="font-light" />
         </div>
 
-        <dl className="mt-block flex flex-col border-t border-rule">
+        <dl className="mt-major flex flex-col border-t border-rule">
           {metodoPage.approach.disciplines.map((d) => (
             <div
               key={d.name}
@@ -95,7 +95,7 @@ export default function MetodoPage() {
           <SectionTitle id="diferencia" lines={metodoPage.difference.title} />
           <Prose paragraphs={metodoPage.difference.body} className="font-light" />
           <div className="mt-i2">
-            <BookingLink long />
+            <BookingLink />
           </div>
         </div>
       </Section>
