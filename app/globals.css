@@ -57,13 +57,13 @@
      enlaces. */
   --color-wine: #7a5e62;
   --color-wine-hover: #62464b;
-  /* Pie en gris piedra (5 de noviembre): entre «Stamped Concrete» y
-     «Roycroft Pewter», más intenso que el gris anterior para que el pie
-     se distinga. */
-  --color-stone: #696c67;
-  --color-stone-ink: #fbf9f5;
-  --color-stone-ink-2: #f3f1ec;
-  --color-stone-rule: #868983;
+  /* Pie en greige cálido (6 de noviembre). Carol encontró el primer gris
+     (#696c67) oscuro y con toque verdoso: la referencia que mandó es
+     #ada49f; éste va un punto más profundo y con la tinta oscura encima. */
+  --color-stone: #9a928d;
+  --color-stone-ink: #26221f;
+  --color-stone-ink-2: #2b2724;
+  --color-stone-rule: #7e7671;
 
   /* Petróleo: el gesto profundo, una sola sección y nada más. */
   --color-deep: #22363a;
@@ -286,7 +286,8 @@
      (5.41:1): en las tres pasa el mínimo de texto normal, aunque en
      titular bastaría 3:1. */
   .emphasis {
-    /* Sin cursiva ni color distinto: todo uniforme (5 de noviembre). */
+    /* Sin cursiva ni color distinto en los titulares (Carol, 5 y 6 de
+       noviembre); la cursiva se queda en citas y textos. */
     font-style: normal;
     color: inherit;
   }
@@ -441,7 +442,7 @@
   }
   .on-stone .link-quiet:hover,
   .on-stone .link-quiet:active {
-    color: var(--color-stone-ink);
+    color: var(--color-ink);
     text-decoration: underline;
   }
 

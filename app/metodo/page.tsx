@@ -24,7 +24,7 @@ export default function MetodoPage() {
 
         <div className="mt-major flex max-w-measure flex-col gap-i1 border-t border-rule pt-i2">
           <Eyebrow quiet>{metodoPage.rtt.formal.label}</Eyebrow>
-          <p className="type-display text-quote text-ink-2">
+          <p className="type-display text-quote italic text-ink-2">
             {metodoPage.rtt.formal.text}
           </p>
         </div>

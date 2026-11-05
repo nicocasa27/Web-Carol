@@ -58,7 +58,7 @@ export default function Home() {
                 'linear-gradient(color-mix(in srgb, var(--color-ink) 0%, transparent), color-mix(in srgb, var(--color-ink) 30%, transparent))',
             }}
           />
-          <h2 id="reconocimiento" className="type-display text-recognition max-sm:text-balance">
+          <h2 id="reconocimiento" className="type-display text-recognition italic max-sm:text-balance">
             {recognition.quote.map((line, index) => (
               <Fragment key={line}>
                 {index > 0 ? <LineBreak /> : null}
@@ -84,7 +84,7 @@ export default function Home() {
             <Eyebrow>{idea.eyebrow}</Eyebrow>
             <SectionTitle id="la-idea" lines={idea.title} />
             <Prose paragraphs={idea.body} className="font-light" />
-            <p className="type-display max-w-measure text-quote text-ink-2">
+            <p className="type-display max-w-measure text-quote italic text-ink-2">
               {idea.pullQuote}
             </p>
             <p className="mt-i1">
@@ -206,7 +206,7 @@ export default function Home() {
           <Eyebrow>{stories.eyebrow}</Eyebrow>
           <SectionTitle id="historias-titulo" lines={stories.title} />
           <p className="max-w-measure text-body font-light text-ink-2 text-pretty">{stories.intro}</p>
-          <p className="type-display mt-i1 max-w-[22ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] text-ink max-sm:text-balance">
+          <p className="type-display mt-i1 max-w-[22ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] italic text-ink max-sm:text-balance">
             {stories.closing.map((line, index) => (
               <Fragment key={line}>
                 {index > 0 ? <LineBreak /> : null}

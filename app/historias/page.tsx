@@ -34,7 +34,7 @@ export default function HistoriasPage() {
             ))}
           </dl>
 
-          <p className="type-display text-center text-[clamp(22px,2.6vw,30px)] leading-[1.4] text-ink-2">
+          <p className="type-display text-center text-[clamp(22px,2.6vw,30px)] leading-[1.4] italic text-ink-2">
             {historiasPage.story.closing}
           </p>
         </article>
