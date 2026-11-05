@@ -66,7 +66,7 @@ export default function SesionesPage() {
               key={quote}
               className="flex flex-col gap-i1 rounded-card bg-ground p-i3"
             >
-              <p className="type-display text-quote italic text-ink-2">«{quote}»</p>
+              <p className="type-display text-quote text-ink-2">«{quote}»</p>
             </blockquote>
           ))}
         </div>

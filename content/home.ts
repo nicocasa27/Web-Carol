@@ -56,12 +56,10 @@ export const opening = {
  * es el verbo saber, y «por qué» separado al ser pregunta indirecta.
  */
 export const recognition = {
-  quote: ['«Sé exactamente por qué lo hago…', 'y aún así, no puedo dejar de hacerlo.»'],
+  quote: ['«Sé exactamente por qué hago esto…', 'pero no puedo dejar de hacerlo.»'],
+  /* Vuelve el texto corto (5 de noviembre): «se ve mucha información». */
   body: [
-    'Has leído, aprendido, trabajado en ti; has buscado respuestas en libros, cursos y terapias.',
-    'Pero saberlo no siempre es suficiente para dejar de repetirlo.',
-    'No es falta de voluntad.',
-    'Es que una parte de ti puede seguir viviendo desde una historia que tu mente consciente ya entendió, pero que aún no ha podido transformar desde la raíz.',
+    'Si esa frase te resulta familiar, ya sabes que comprender un problema no es lo mismo que transformarlo. Has leído, tomado cursos, probado terapias. Y aun así, el patrón regresa. No es falta de voluntad. Es una historia instalada mucho antes de que pudieras elegirla.',
   ],
 } as const;
 
@@ -108,7 +106,7 @@ export const method = {
    */
   title: ['Cinco movimientos.', 'Una reconfiguración.'],
   intro:
-    'Protocolo secuencial de acceso neuro-subconsciente que integra la ciencia aplicada y el acompañamiento profundo mediante la intervención Hipnótica Clínica, RTT, Neuroplasticidad dirigida, Psicología, PNL, Coaching Ontológico y Calibración somática bioinformacional.',
+    'Protocolo secuencial de acceso neuro-subconsciente que integra Hipnoterapia RTT, Neuroplasticidad dirigida, Psicología, PNL, TCC.',
   /** La línea entre guiones, tal como la escribió. */
   purpose:
     'Diseñado para comprender el origen identitario y recuperar el control para reconsolidarlo desde la raíz',
@@ -256,13 +254,14 @@ export const doors = {
     },
     {
       /**
-       * El programa escolar ya tiene nombre: «Mettle Youngs», por RTT
-       * Schools (3 de noviembre). Sustituye a «Young Minds».
+       * Nombre provisional «RTT School Programs» (5 de noviembre), hasta que
+       * Carol encuentre uno mejor. «Young Minds» choca con un programa
+       * conocido del Reino Unido.
        *
        * Carol lo escribió «5 weeks Protocol»; en inglés el modificador va
        * en singular y con guion, así que aquí dice «5-Week Protocol».
        */
-      label: 'Mettle Youngs · By RTT Schools',
+      label: 'RTT School Programs',
       title: 'The Neuroconfidence Curriculum · 5-Week Protocol',
       body: 'Una metodología para desarrollar autoconfianza, identidad y fortaleza interior durante la infancia y la adolescencia, a través de un diseño de cinco semanas.',
       href: '/escuelas',

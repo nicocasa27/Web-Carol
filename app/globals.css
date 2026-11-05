@@ -55,8 +55,15 @@
      vive sólo en la píldora del cierre: 17.6:1 con el marfil de su
      texto. El salmón sigue siendo el acento de etiquetas, numerales y
      enlaces. */
-  --color-wine: #2a070c;
-  --color-wine-hover: #45121a;
+  --color-wine: #7a5e62;
+  --color-wine-hover: #62464b;
+  /* Pie en gris piedra (5 de noviembre): entre «Stamped Concrete» y
+     «Roycroft Pewter», más intenso que el gris anterior para que el pie
+     se distinga. */
+  --color-stone: #696c67;
+  --color-stone-ink: #fbf9f5;
+  --color-stone-ink-2: #f3f1ec;
+  --color-stone-rule: #868983;
 
   /* Petróleo: el gesto profundo, una sola sección y nada más. */
   --color-deep: #22363a;
@@ -243,6 +250,13 @@
   .on-deep :focus-visible {
     outline-color: var(--color-accent-warm);
   }
+  .on-stone :focus-visible {
+    outline-color: var(--color-stone-ink);
+  }
+  .on-stone ::selection {
+    background-color: var(--color-stone-rule);
+    color: var(--color-stone-ink);
+  }
   .on-deep ::selection {
     background-color: var(--color-deep-rule);
     color: var(--color-deep-ink);
@@ -272,11 +286,9 @@
      (5.41:1): en las tres pasa el mínimo de texto normal, aunque en
      titular bastaría 3:1. */
   .emphasis {
-    font-style: italic;
-    color: var(--color-accent-ink);
-  }
-  .on-deep .emphasis {
-    color: var(--color-accent-warm);
+    /* Sin cursiva ni color distinto: todo uniforme (5 de noviembre). */
+    font-style: normal;
+    color: inherit;
   }
 
   /* La etiqueta versalita del diseño. Una sola definición, para que no se
@@ -422,6 +434,15 @@
   }
   .on-deep .link-quiet:active {
     color: var(--color-accent-warm);
+  }
+  /* El pie en gris piedra. */
+  .on-stone .link-quiet {
+    color: var(--color-stone-ink-2);
+  }
+  .on-stone .link-quiet:hover,
+  .on-stone .link-quiet:active {
+    color: var(--color-stone-ink);
+    text-decoration: underline;
   }
 
   /* La acción dentro de la barra. Es el último elemento del menú y lo

@@ -82,7 +82,7 @@ export const methodDescriptor = 'Advanced Neuro-Subconscious Therapeutics';
 export const homeNav = [
   { href: '/#quien', label: 'About' },
   { href: '/#metodo', label: 'Method' },
-  /* «Mettle Youngs» es el nombre del programa dentro de la página, no
+  /* «RTT School Programs» es el nombre provisional del programa dentro de la página, no
      del menú: quien no lo conoce no sabría qué hay detrás. */
   { href: '/escuelas', label: 'Schools' },
   { href: '/#historias', label: 'Stories' },

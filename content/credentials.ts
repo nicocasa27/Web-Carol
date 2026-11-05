@@ -65,7 +65,7 @@ export const ownCredentials: readonly Credential[] = [
   },
   /**
    * RTT for Schools, añadido el 3 de noviembre. Es el sello que respalda
-   * «Mettle Youngs», el protocolo escolar. El original es turquesa; va
+   * «RTT School Programs», el protocolo escolar. El original es turquesa; va
    * recortado, cuadrado y teñido en la tinta del sitio como los otros
    * doce, para que la fila no se convierta en tres colores distintos.
    */
