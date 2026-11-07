@@ -50,11 +50,12 @@
   /* Diseño: #c1755a = 3.35:1. Dos pasos más oscuro, mismo tono. */
   --color-accent-ink: #a2563d;
   --color-accent-warm: #e0987d;
-  /* «Midnight Bordeaux», el color del llamado principal, tal como lo
-     eligió Carol. Es el único relleno oscuro sobre claro de la página y
-     vive sólo en la píldora del cierre: 17.6:1 con el marfil de su
-     texto. El salmón sigue siendo el acento de etiquetas, numerales y
-     enlaces. */
+  /* El color del llamado principal y de nada más: es el único relleno
+     oscuro sobre claro de la página, y por eso destaca sin gritar.
+     Empezó siendo «Midnight Bordeaux» (#2a070c) y pasó a este mauve el 5
+     de noviembre: aquél tenía tan poca luz que se leía como negro.
+     5.54:1 con el marfil de su texto. El salmón sigue siendo el acento
+     de etiquetas, numerales y enlaces. */
   --color-wine: #7a5e62;
   --color-wine-hover: #62464b;
   /* Pie en gris piedra (5 de noviembre): entre «Stamped Concrete» y
