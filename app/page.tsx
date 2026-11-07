@@ -84,7 +84,7 @@ export default function Home() {
             <Eyebrow>{idea.eyebrow}</Eyebrow>
             <SectionTitle id="la-idea" lines={idea.title} />
             <Prose paragraphs={idea.body} className="font-light" />
-            <p className="type-display max-w-measure text-quote text-ink-2">
+            <p className="type-display max-w-measure text-quote italic text-ink-2">
               {idea.pullQuote}
             </p>
             <p className="mt-i1">
@@ -109,10 +109,15 @@ export default function Home() {
             <Eyebrow>{method.eyebrow}</Eyebrow>
             <SectionTitle id="el-metodo" lines={method.title} />
             <p className="text-body font-light text-deep-ink-2">{method.intro}</p>
-            {/* La línea entre guiones que escribió Carol. Va en la display
-                y en el claro fuerte: es la frase que resume para qué
-                sirve todo lo anterior, no una nota al pie. */}
-            <p className="type-display mt-i1 text-quote text-deep-ink text-balance">
+          </Reveal>
+
+          {/* La línea entre guiones que escribió Carol, en itálica y
+              centrada en la banda entera. Vivía dentro del bloque del
+              titular, que mide 640 px, así que su «centro» caía a un
+              tercio del ancho. Es la frase que resume para qué sirve todo
+              lo anterior, no una nota al pie. */}
+          <Reveal>
+            <p className="type-display mx-auto max-w-[36em] text-center text-quote italic text-deep-ink text-balance">
               — {method.purpose} —
             </p>
           </Reveal>
@@ -206,7 +211,7 @@ export default function Home() {
           <Eyebrow>{stories.eyebrow}</Eyebrow>
           <SectionTitle id="historias-titulo" lines={stories.title} />
           <p className="max-w-measure text-body font-light text-ink-2 text-pretty">{stories.intro}</p>
-          <p className="type-display mt-i1 max-w-[22ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] text-ink max-sm:text-balance">
+          <p className="type-display mt-i1 max-w-[22ch] text-[clamp(26px,3.4vw,40px)] leading-[1.28] italic text-ink max-sm:text-balance">
             {stories.closing.map((line, index) => (
               <Fragment key={line}>
                 {index > 0 ? <LineBreak /> : null}

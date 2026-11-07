@@ -560,3 +560,38 @@ porque `#2a070c` tiene tan poca luz que se lee como negro. Se revirtió: el
 color lo eligió Carol y lo tiene que ver como lo pidió. También se revirtió
 centrar la cabecera de las páginas internas — era una decisión de diseño
 que nadie había pedido.
+
+---
+
+## 7 de noviembre — aire en la apertura, itálicas y reconocimiento en dos párrafos
+
+Sobre la base del 5 de noviembre, que se mantiene entera: vino mauve, pie
+en gris piedra, copy corto y «RTT School Programs».
+
+**La apertura, «muy aireada».** El párrafo vuelve a la sans —Carol probó la
+didona y prefirió la letra de contraste, la del menú: «transmite mejor»— y
+baja de 21-24 px a 16-19.
+
+El aire de arriba estaba mal medido: `pt-hero` se contaba desde el borde de
+la página y, como la barra es fija, se comía la mitad. En un teléfono la
+etiqueta del método quedaba a 32 px del menú. Ahora el padding es
+`nav + clamp(56px, 7vw, 104px)` y el hueco es real.
+
+**Vuelven tres itálicas**, que el 5 de noviembre se habían quitado: la cita
+de «El origen», la del caso y la línea entre guiones del método. Las pidió
+Carol expresamente. La pregunta grande del reconocimiento se queda sin
+itálica, porque de ésa no dijo nada.
+
+**La línea del método** se saca del bloque del titular —640 px de ancho, su
+«centro» caía a un tercio de la banda— y pasa a centrarse en la banda
+entera.
+
+**El reconocimiento** conserva el texto corto del 5 de noviembre, repartido
+en dos párrafos justificados bajo la pregunta centrada.
+
+**Incidencia.** Esta sesión trabajó varias horas sobre el estado del 3 de
+noviembre sin saber que existía el commit del día 5, y llegó a desplegar
+esa versión a producción: durante ese rato el sitio sirvió el vino oscuro,
+el pie en petróleo y el copy largo. Se detectó al hacer `push`, que fue
+rechazado. Lo de hoy se rehízo sobre el commit del día 5 en vez de forzar
+el rebase. Para la próxima: `git pull` antes de empezar, no al terminar.

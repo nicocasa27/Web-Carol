@@ -57,9 +57,17 @@ export const opening = {
  */
 export const recognition = {
   quote: ['«Sé exactamente por qué hago esto…', 'pero no puedo dejar de hacerlo.»'],
-  /* Vuelve el texto corto (5 de noviembre): «se ve mucha información». */
+  /**
+   * El mismo texto corto del 5 de noviembre, repartido en dos párrafos
+   * (7 de noviembre): punto y coma dentro del primero y punto y aparte
+   * antes de «No es falta de voluntad». Va justificado, con la pregunta
+   * centrada encima.
+   *
+   * Minúscula tras el punto y coma, que es como se escribe en español.
+   */
   body: [
-    'Si esa frase te resulta familiar, ya sabes que comprender un problema no es lo mismo que transformarlo. Has leído, tomado cursos, probado terapias. Y aun así, el patrón regresa. No es falta de voluntad. Es una historia instalada mucho antes de que pudieras elegirla.',
+    'Si esa frase te resulta familiar, ya sabes que comprender un problema no es lo mismo que transformarlo. Has leído, tomado cursos, probado terapias; y aun así, el patrón regresa.',
+    'No es falta de voluntad. Es una historia instalada mucho antes de que pudieras elegirla.',
   ],
 } as const;
 

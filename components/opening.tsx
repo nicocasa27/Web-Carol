@@ -19,7 +19,11 @@ export function Opening() {
     <section
       id="inicio"
       aria-labelledby="apertura"
-      className="flex flex-col items-center px-6 pt-hero text-center"
+      /* El aire de arriba se mide desde el borde de la barra, no desde
+         el borde de la página: la barra es fija y se comía la mitad del
+         `pt-hero`, con lo que en un teléfono la etiqueta quedaba a 32 px
+         del menú. Carol lo pidió «muy aireado». */
+      className="flex flex-col items-center px-6 pt-[calc(var(--spacing-nav)+clamp(56px,7vw,104px))] text-center"
     >
       {/* El nombre del trabajo vive aquí y no debajo de la marca en la
           barra: es lo que alguien pregunta la primera vez que llega, no
@@ -37,7 +41,7 @@ export function Opening() {
 
       <h1
         id="apertura"
-        className="type-display sy-fade sy-step-2 mt-stack max-w-[15em] text-opening tracking-[-0.5px] max-sm:text-balance"
+        className="type-display sy-fade sy-step-2 mt-[clamp(52px,8vw,104px)] max-w-[15em] text-opening tracking-[-0.5px] max-sm:text-balance"
       >
         {opening.headline.map((line, index) => (
           <Fragment key={line}>
@@ -51,7 +55,11 @@ export function Opening() {
           grande que el cuerpo normal —21-24 px en vez de 16-19— porque
           los trazos finos de una didona a tamaño de texto se quedan en un
           hilo; es la misma razón por la que subió la cita de «La idea». */}
-      <p className="type-display sy-fade sy-step-3 mt-major max-w-[26em] text-quote text-ink-2 text-pretty">
+      {/* En la sans y no en Didot: Carol probó la didona y prefirió la
+          letra de contraste, la misma del menú —«transmite mejor»—. Y un
+          punto más pequeña, para que el titular respire y el bloque no se
+          amontone con la etiqueta de arriba. */}
+      <p className="sy-fade sy-step-3 mt-[clamp(44px,6vw,80px)] max-w-[34em] text-lead font-light text-ink-2 text-pretty">
         {opening.sub.map((line, index) => (
           <Fragment key={line}>
             {index > 0 ? <LineBreak /> : null}
